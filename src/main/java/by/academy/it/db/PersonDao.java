@@ -237,7 +237,7 @@ public class PersonDao extends BaseDao<Person> {
         System.out.println("---session2");
         Session session2 = sessionFactory.openSession();
         transaction = session2.beginTransaction();
-        Person person2 = (Person) session2.get(Person.class, 1);
+        Person person2 = (Person) session2.get(Person.class, 2);
         transaction.commit();
         session2.close();
         System.out.println(person2);
@@ -245,7 +245,7 @@ public class PersonDao extends BaseDao<Person> {
         System.out.println("---session3");
         Session session3 = sessionFactory.openSession();
         transaction = session3.beginTransaction();
-        Person person3 = (Person) session3.get(Person.class, 1);
+        Person person3 = (Person) session3.get(Person.class, 2);
         transaction.commit();
         session3.close();
         System.out.println(person3);
@@ -257,5 +257,13 @@ public class PersonDao extends BaseDao<Person> {
         transaction.commit();
         session4.close();
         System.out.println(person4);
+
+        System.out.println("---session5");
+        Session session5 = sessionFactory.openSession();
+        transaction = session5.beginTransaction();
+        Person person5 = (Person) session5.get(Person.class, 2);
+        transaction.commit();
+        session5.close();
+        System.out.println(person5);
     }
 }
