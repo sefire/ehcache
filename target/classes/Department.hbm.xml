@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="by.academy.it.pojos" auto-import="false" catalog="hibertrydb">
+    <class name="Department" table="MANYTOMANYDEPARTMENT">
+        <id name="departmentId">
+            <generator class="native"/>
+        </id>
+
+        <property name="departmentName"/>
+
+        <set name="persons" table="MANYTOMANYEPERSON"
+                inverse="true" lazy="true" fetch="select">
+            <key column="f_department_id" not-null="true"/>
+            <one-to-many class="Person"/>
+        </set>
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="by.academy.it.pojos" auto-import="false" catalog="hibertrydb">
+    <class name="PersonDetail" table="MANYTOMANYPERSONDETAIL" lazy="false">
+        <id name="id">
+            <generator class="foreign">
+                <param name="property">person</param>
+            </generator>
+        </id>
+
+        <property name="street"/>
+        <property name="city"/>
+        <property name="state"/>
+        <property name="country"/>
+
+        <one-to-one name="person" class="Person" constrained="true"></one-to-one>
+
+
+    </class>
+</hibernate-mapping>
